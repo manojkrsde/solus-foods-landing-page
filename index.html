@@ -4,34 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solus Foods - Premium Healthy Snacks Coming Soon</title>
-    
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Discover premium healthy snacks and makhana fox nuts from Solus Foods. Organic, nutritious treats launching soon. Join our waitlist for exclusive access.">
-    <meta name="keywords" content="healthy snacks, makhana, fox nuts, organic treats, nutritious snacks, dry fruits">
-    <meta name="author" content="Solus Foods">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Solus Foods - Premium Healthy Snacks Coming Soon">
-    <meta property="og:description" content="Premium healthy snacks and makhana fox nuts launching soon. Join our waitlist!">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/og-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <!-- Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -41,12 +19,7 @@
                 <div class="logo">
                     <h1>Solus Foods</h1>
                 </div>
-                <button 
-                    id="themeToggle" 
-                    class="theme-toggle" 
-                    aria-label="Toggle dark mode"
-                    title="Switch theme"
-                >
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-sun light-icon"></i>
                     <i class="fas fa-moon dark-icon"></i>
                 </button>
@@ -60,11 +33,7 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
-                    <div class="hero-content" data-animate="fade-left">
-                        <div class="hero-badge">
-                            <i class="fas fa-leaf"></i>
-                            100% Organic & Premium
-                        </div>
+                    <div class="hero-content">
                         <h1 class="hero-title">
                             Premium <span class="text-gradient">Healthy</span><br>
                             Snacks & Treats
@@ -74,62 +43,56 @@
                             dry fruits, and nutritious snacks. Your wellness journey 
                             starts with every delicious bite.
                         </p>
-                        
-                        <!-- Features Pills -->
-                        <div class="features-section">
-                            <div class="features-grid">
-                                <div class="feature-pill">
-                                    <i class="fas fa-seedling"></i>
-                                    100% Organic
+
+                        <!-- Countdown Section -->
+                        <div class="countdown-section">
+                            <h2 class="countdown-title">Launching Soon</h2>
+                            <div class="countdown-grid">
+                                <div class="time-box">
+                                    <span id="days" class="time-number">00</span>
+                                    <span class="time-label">Days</span>
                                 </div>
-                                <div class="feature-pill">
-                                    <i class="fas fa-heart"></i>
-                                    Heart Healthy
+                                <div class="time-box">
+                                    <span id="hours" class="time-number">00</span>
+                                    <span class="time-label">Hours</span>
                                 </div>
-                                <div class="feature-pill">
-                                    <i class="fas fa-shipping-fast"></i>
-                                    Fast Delivery
+                                <div class="time-box">
+                                    <span id="minutes" class="time-number">00</span>
+                                    <span class="time-label">Minutes</span>
                                 </div>
-                                <div class="feature-pill">
-                                    <i class="fas fa-award"></i>
-                                    Premium Quality
+                                <div class="time-box">
+                                    <span id="seconds" class="time-number">00</span>
+                                    <span class="time-label">Seconds</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Product Showcase -->
-                    <div class="product-showcase" data-animate="fade-right" data-delay="200">
+                    <div class="product-showcase">
                         <div class="floating-products">
                             <div class="product-float product-main">
-                                <img src="https://images.unsplash.com/photo-1599909533063-fbe5bbceb6c8?w=400&q=80" alt="Premium Makhana Fox Nuts" loading="lazy">
-                                <div class="product-label">Premium Makhana</div>
+                                <img src="./public/1-makhana.png" alt="Premium Makhana Fox Nuts" loading="lazy">
                             </div>
                             <div class="product-float product-secondary">
-                                <img src="https://images.unsplash.com/photo-1580439678-69ad2e8e50ea?w=300&q=80" alt="Mixed Dry Fruits" loading="lazy">
-                                <div class="product-label">Dry Fruits Mix</div>
+                                <img src="./public/3-landscape.jpg" alt="Mixed Dry Fruits" loading="lazy">
                             </div>
                             <div class="product-float product-tertiary">
-                                <img src="https://images.unsplash.com/photo-1536511132770-e5058c33d0d3?w=250&q=80" alt="Roasted Nuts" loading="lazy">
-                                <div class="product-label">Roasted Nuts</div>
+                                <img src="./public/2-nuts.jpg" alt="Roasted Nuts" loading="lazy">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Decorative Elements -->
-            <div class="decoration-circle top-right"></div>
-            <div class="decoration-circle bottom-left"></div>
         </section>
 
         <!-- Email Signup Section -->
-        <section class="signup-section" data-animate="fade-up">
+        <section class="signup-section">
             <div class="container">
-                <h2 class="signup-title">Be First to Know</h2>
-                <p class="signup-subtitle">
+                <h2 class="section-title">Be First to Know</h2>
+                <p class="section-subtitle">
                     Join our exclusive waitlist and get notified when we launch. 
-                    Plus, enjoy 20% off your first order!
+                    Plus, enjoy 20% off on first order!
                 </p>
                 
                 <form id="signupForm" class="email-form">
@@ -141,14 +104,8 @@
                             placeholder="Enter your email address"
                             required
                             autocomplete="email"
-                            aria-label="Email address"
                         >
-                        <button 
-                            type="submit" 
-                            id="signupBtn" 
-                            class="submit-btn"
-                            aria-label="Join waitlist"
-                        >
+                        <button type="submit" id="signupBtn" class="submit-btn">
                             <span class="btn-text">Join Waitlist</span>
                             <span class="btn-loading">
                                 <i class="fas fa-spinner spinner"></i>
@@ -156,107 +113,42 @@
                             </span>
                         </button>
                     </div>
-                    <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+                    <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
         </section>
 
-        <!-- Countdown Section -->
-        <section class="countdown-section" data-animate="fade-up" data-delay="100">
+        <!-- Store & Social Links Section -->
+<section class="social-section" id="social-section-id">
             <div class="container">
-                <h2 class="countdown-title">Launching Soon</h2>
-                <div class="countdown-grid">
-                    <div class="time-box">
-                        <span id="days" class="time-number">00</span>
-                        <span class="time-label">Days</span>
-                    </div>
-                    <div class="time-box">
-                        <span id="hours" class="time-number">00</span>
-                        <span class="time-label">Hours</span>
-                    </div>
-                    <div class="time-box">
-                        <span id="minutes" class="time-number">00</span>
-                        <span class="time-label">Minutes</span>
-                    </div>
-                    <div class="time-box">
-                        <span id="seconds" class="time-number">00</span>
-                        <span class="time-label">Seconds</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Store Links Section -->
-        <section class="store-section" data-animate="fade-up" data-delay="200">
-            <div class="container">
-                <h2 class="section-title">Shop Our Products</h2>
+                <h2 class="section-title">Stay Connected & Shop</h2>
                 <p class="section-subtitle">
-                    Available on your favorite platforms when we launch
-                </p>
-                
-                <div class="store-links">
-                    <a href="#" class="store-card amazon" aria-label="Shop on Amazon">
-                        <div class="store-icon">
-                            <i class="fab fa-amazon"></i>
-                        </div>
-                        <div class="store-info">
-                            <span class="store-name">Amazon</span>
-                            <span class="store-desc">Fast delivery nationwide</span>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="store-card flipkart" aria-label="Shop on Flipkart">
-                        <div class="store-icon">
-                            <span>F</span>
-                        </div>
-                        <div class="store-info">
-                            <span class="store-name">Flipkart</span>
-                            <span class="store-desc">Trusted Indian marketplace</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Media Section -->
-        <section class="social-section" data-animate="fade-up" data-delay="300">
-            <div class="container">
-                <h2 class="section-title">Stay Connected</h2>
-                <p class="section-subtitle">
-                    Follow us for healthy recipes, nutrition tips, and exclusive updates
+                    Follow us for updates and shop when we launch
                 </p>
                 
                 <div class="social-grid">
-                    <a href="#" class="social-card instagram" aria-label="Follow us on Instagram">
+                    <a href="#social-section-id" class="social-link instagram">
                         <div class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <div class="social-title">Instagram</div>
-                        <div class="social-handle">@solusfoods</div>
+                        <div class="social-name">Instagram</div>
+                        <div class="social-handle">@solusfoods.global</div>
                     </a>
                     
-                    <a href="#" class="social-card facebook" aria-label="Like us on Facebook">
+                    <a href="#social-section-id" class="social-link amazon">
                         <div class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-amazon"></i>
                         </div>
-                        <div class="social-title">Facebook</div>
-                        <div class="social-handle">Solus Foods</div>
+                        <div class="social-name">Amazon</div>
+                        <div class="social-handle">Shop Now</div>
                     </a>
                     
-                    <a href="#" class="social-card twitter" aria-label="Follow us on Twitter">
+                    <a href="#social-section-id" class="social-link flipkart">
                         <div class="social-icon">
-                            <i class="fab fa-twitter"></i>
+                            <span>F</span>
                         </div>
-                        <div class="social-title">Twitter</div>
-                        <div class="social-handle">@solusfoods</div>
-                    </a>
-                    
-                    <a href="#" class="social-card linkedin" aria-label="Connect on LinkedIn">
-                        <div class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <div class="social-title">LinkedIn</div>
-                        <div class="social-handle">Solus Foods</div>
+                        <div class="social-name">Flipkart</div>
+                        <div class="social-handle">Shop Now</div>
                     </a>
                 </div>
             </div>
@@ -270,24 +162,10 @@
                 <p class="footer-text">
                     &copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.
                 </p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <span class="footer-divider">•</span>
-                    <a href="#">Terms of Service</a>
-                    <span class="footer-divider">•</span>
-                    <a href="#">Contact Us</a>
-                    <span class="footer-divider">•</span>
-                    <a href="#">About</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Modules -->
-    <script src="js/theme.js"></script>
-    <script src="js/countdown.js"></script>
-    <script src="js/email.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
