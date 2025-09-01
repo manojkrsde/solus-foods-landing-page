@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solus Foods - Coming Soon</title>
+    <title>Solus Foods - Premium Healthy Snacks Coming Soon</title>
     <meta name="description" content="Premium healthy snacks and dry fruits coming soon. Discover the finest quality makhana fox nuts and organic treats.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,229 +18,188 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-        <i class="fas fa-sun light-icon"></i>
-        <i class="fas fa-moon dark-icon"></i>
-    </button>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <h2>Solus Foods</h2>
-            </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Solus Foods</h1>
+                </div>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background">
-            <div class="hero-image-slider">
-                <div class="hero-slide active" style="background-image: url('https://pixabay.com/get/g4288e0dd7783e17c69228bf94bc2788aaef3c72d2bfffbc28296418dcaa59f9ff823916be8c0c60f2947cf51f5aab005acf9976c1929552ef0698163add526be_1280.jpg')"></div>
-                <div class="hero-slide" style="background-image: url('https://pixabay.com/get/g016dfd273d3480be5cfc20dd8873ae96d86abc9a5a60c0d4986f6714def3d6e8a0b79547ef0f57f8b029887089b55ee75665e45b36d99842db6c245a9433c61d_1280.jpg')"></div>
-                <div class="hero-slide" style="background-image: url('https://pixabay.com/get/g003f4473b7e87eb09665b90f191a754cee14defcd3c55acaa9e33cea1d691b4a52fa82d4869f5255372cb931111a2a622064baf35fb305ed23673e9ab1b96d68_1280.jpg')"></div>
-            </div>
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="hero-content">
-            <div class="container">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-line">Premium</span>
-                        <span class="title-line">Healthy Snacks</span>
-                        <span class="title-accent">Coming Soon</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Discover the finest quality makhana fox nuts, premium dry fruits, and organic healthy snacks. 
-                        Crafted with love for the health-conscious food lover.
-                    </p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-subtitle">Healthy Snacking</h2>
+                        <h1 class="hero-title">
+                            Premium <br>
+                            Makhana & Dry Fruits <br>
+                            <span class="accent-text">Coming Soon</span>
+                        </h1>
+                        <p class="hero-description">
+                            Discover the finest quality organic makhana fox nuts and premium dry fruits. 
+                            Crafted with care for the health-conscious snack lover.
+                        </p>
+                        
+                        <!-- Email Signup -->
+                        <div class="signup-section">
+                            <form class="signup-form" id="signupForm">
+                                <div class="input-group">
+                                    <input 
+                                        type="email" 
+                                        class="email-input" 
+                                        id="emailInput"
+                                        placeholder="Enter your email address"
+                                        required
+                                    >
+                                    <button type="submit" class="cta-btn" id="signupBtn">
+                                        <span class="btn-text">Get Notified</span>
+                                        <span class="btn-loading">
+                                            <i class="fas fa-spinner fa-spin"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="form-message" id="formMessage"></div>
+                            </form>
+                        </div>
+                    </div>
                     
-                    <!-- Countdown Timer -->
-                    <div class="countdown-container">
-                        <h3 class="countdown-title">Launch Countdown</h3>
-                        <div class="countdown" id="countdown">
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="days">00</span>
-                                <span class="countdown-label">Days</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="hours">00</span>
-                                <span class="countdown-label">Hours</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="minutes">00</span>
-                                <span class="countdown-label">Minutes</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="seconds">00</span>
-                                <span class="countdown-label">Seconds</span>
-                            </div>
+                    <div class="hero-image">
+                        <div class="product-showcase">
+                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=300&h=300&fit=crop&crop=center" alt="Premium Makhana" class="product-img main-product">
+                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&h=200&fit=crop&crop=center" alt="Dry Fruits" class="product-img secondary-product">
+                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=180&h=180&fit=crop&crop=center" alt="Healthy Snacks" class="product-img tertiary-product">
                         </div>
                     </div>
-
-                    <!-- Email Signup Form -->
-                    <div class="email-signup">
-                        <h3 class="signup-title">Get Notified When We Launch</h3>
-                        <form class="signup-form" id="signupForm">
-                            <div class="form-group">
-                                <input 
-                                    type="email" 
-                                    class="email-input" 
-                                    id="emailInput"
-                                    placeholder="Enter your email address"
-                                    required
-                                >
-                                <button type="submit" class="signup-btn" id="signupBtn">
-                                    <span class="btn-text">Notify Me</span>
-                                    <span class="btn-loading">
-                                        <i class="fas fa-spinner fa-spin"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="form-message" id="formMessage"></div>
-                        </form>
+                </div>
+            </section>
+            
+            <!-- Countdown Section -->
+            <section class="countdown-section">
+                <h3 class="countdown-title">Launching In</h3>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
                     </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Product Preview -->
+            <section class="products">
+                <h2 class="section-title">What's Coming</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=250&h=200&fit=crop&crop=center" alt="Premium Makhana">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Makhana</h3>
+                            <p>Roasted fox nuts with exotic flavors</p>
+                            <span class="price">Starting ₹299</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=250&h=200&fit=crop&crop=center" alt="Premium Dry Fruits">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Dry Fruits</h3>
+                            <p>Handpicked almonds, cashews & nuts</p>
+                            <span class="price">Starting ₹499</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=250&h=200&fit=crop&crop=center" alt="Healthy Snack Mix">
+                        </div>
+                        <div class="product-info">
+                            <h3>Healthy Snack Mix</h3>
+                            <p>Curated mix of nutritious seeds & nuts</p>
+                            <span class="price">Starting ₹399</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Natural</h3>
+                    <p>Organic ingredients with no artificial additives</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Heart Healthy</h3>
+                    <p>Nutritious snacks that support your wellness</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Carefully selected and quality assured products</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Products Preview Section -->
-    <section class="products-preview" id="products">
+    
+    <!-- Social & Contact -->
+    <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">What's Coming</h2>
-            <div class="products-grid">
-                <div class="product-card" data-aos="fade-up">
-                    <div class="product-image">
-                        <img src="https://pixabay.com/get/g193b67940f20c5302ad9d55e507d2ffe115951f84bfdd3597e0fe975f3d05a1858cd89b20bf0483aaeb7921e9e15e0ca059f8b9e0d439762ebc833727dc11fe3_1280.jpg" alt="Premium Makhana Fox Nuts">
-                        <div class="product-overlay">
-                            <span class="coming-soon-badge">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Premium Makhana</h3>
-                        <p>Roasted fox nuts with exotic flavors and natural spices</p>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="https://pixabay.com/get/gfd1c315a9221a1d33f0fbc3c5cf838876617978df048b4613a77a6ab60ece9b9236d50ae88f2b1d6ff92d74783a23b8b0db5a61b2c18faac6cdbbd28ddb4fd8b_1280.jpg" alt="Premium Dry Fruits">
-                        <div class="product-overlay">
-                            <span class="coming-soon-badge">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Premium Dry Fruits</h3>
-                        <p>Handpicked almonds, cashews, and exotic nuts collection</p>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="https://pixabay.com/get/ge47cd582afa8eaf93730b28e30af5f1f47415555595ac635852ef5081b73e299ffc560538e8aabf3c463934df5903ee7b0416e510e0e5fa139299234eaeb86dc_1280.jpg" alt="Healthy Snack Mix">
-                        <div class="product-overlay">
-                            <span class="coming-soon-badge">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Healthy Snack Mix</h3>
-                        <p>Curated mix of nutritious seeds, nuts, and dried fruits</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h2 class="section-title">About Solus Foods</h2>
-                    <p class="about-description">
-                        At Solus Foods, we're passionate about bringing you the finest quality healthy snacks 
-                        that nourish your body and delight your taste buds. Our carefully curated selection 
-                        of premium makhana, dry fruits, and organic snacks represents our commitment to 
-                        health, quality, and taste.
-                    </p>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="fas fa-leaf"></i>
-                            <span>100% Natural & Organic</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-heart"></i>
-                            <span>Heart-Healthy Options</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-award"></i>
-                            <span>Premium Quality Assured</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-shipping-fast"></i>
-                            <span>Fresh & Fast Delivery</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="https://pixabay.com/get/ga82c19ae0a316bd6d08e3010a08a8efd974bafcd20363be00f05e06081c4617b9852363b8e93d10e6516fd7c7b4fda6b72aa463c246d97cdccc280b71f6635d2_1280.jpg" alt="Healthy snacks arrangement">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Social Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title">Stay Connected</h2>
-                <p class="contact-description">
-                    Follow us on social media for updates, healthy recipes, and exclusive offers
-                </p>
-                
-                <div class="social-links">
-                    <a href="https://instagram.com/solusfoods" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://facebook.com/solusfoods" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-                    <a href="https://twitter.com/solusfoods" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </a>
-                    <a href="https://linkedin.com/company/solusfoods" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>hello@solusfoods.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+1 (555) 123-4567</span>
-                    </div>
-                </div>
+            <h2 class="section-title">Stay Connected</h2>
+            <p class="section-subtitle">Follow us for updates and healthy recipes</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/solusfoods" class="social-btn" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/solusfoods" class="social-btn" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/solusfoods" class="social-btn" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com/company/solusfoods" class="social-btn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -249,18 +208,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Solus Foods</h3>
-                    <p>Premium healthy snacks for a better lifestyle</p>
-                </div>
+                <p>&copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.</p>
                 <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#contact">Contact</a>
+                    <a href="mailto:hello@solusfoods.com">hello@solusfoods.com</a>
+                    <span class="divider">|</span>
+                    <a href="tel:+15551234567">+1 (555) 123-4567</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Solus Foods. All rights reserved.</p>
             </div>
         </div>
     </footer>

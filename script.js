@@ -15,105 +15,11 @@ class ThemeManager {
         document.documentElement.setAttribute('data-theme', theme);
         this.currentTheme = theme;
         localStorage.setItem('theme', theme);
-        
-        // Update theme toggle icon
-        const lightIcon = this.themeToggle.querySelector('.light-icon');
-        const darkIcon = this.themeToggle.querySelector('.dark-icon');
-        
-        if (theme === 'dark') {
-            lightIcon.style.display = 'none';
-            darkIcon.style.display = 'block';
-        } else {
-            lightIcon.style.display = 'block';
-            darkIcon.style.display = 'none';
-        }
     }
 
     toggleTheme() {
         const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         this.setTheme(newTheme);
-    }
-}
-
-// Navigation Management
-class NavigationManager {
-    constructor() {
-        this.navbar = document.getElementById('navbar');
-        this.hamburger = document.getElementById('hamburger');
-        this.navMenu = document.getElementById('navMenu');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        this.init();
-    }
-
-    init() {
-        this.hamburger.addEventListener('click', () => this.toggleMobileMenu());
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', () => this.closeMobileMenu());
-        });
-        
-        // Handle scroll for navbar background
-        window.addEventListener('scroll', () => this.handleScroll());
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!this.navbar.contains(e.target)) {
-                this.closeMobileMenu();
-            }
-        });
-    }
-
-    toggleMobileMenu() {
-        this.navMenu.classList.toggle('active');
-        this.hamburger.classList.toggle('active');
-    }
-
-    closeMobileMenu() {
-        this.navMenu.classList.remove('active');
-        this.hamburger.classList.remove('active');
-    }
-
-    handleScroll() {
-        if (window.scrollY > 100) {
-            this.navbar.style.background = 'var(--glass-bg)';
-            this.navbar.style.backdropFilter = 'blur(20px)';
-        } else {
-            this.navbar.style.background = 'var(--glass-bg)';
-            this.navbar.style.backdropFilter = 'blur(15px)';
-        }
-    }
-}
-
-// Hero Image Slider
-class HeroSlider {
-    constructor() {
-        this.slides = document.querySelectorAll('.hero-slide');
-        this.currentSlide = 0;
-        this.slideInterval = null;
-        this.init();
-    }
-
-    init() {
-        if (this.slides.length > 1) {
-            this.startSlideshow();
-        }
-    }
-
-    startSlideshow() {
-        this.slideInterval = setInterval(() => {
-            this.nextSlide();
-        }, 5000); // Change slide every 5 seconds
-    }
-
-    nextSlide() {
-        this.slides[this.currentSlide].classList.remove('active');
-        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-        this.slides[this.currentSlide].classList.add('active');
-    }
-
-    stopSlideshow() {
-        if (this.slideInterval) {
-            clearInterval(this.slideInterval);
-        }
     }
 }
 
@@ -148,7 +54,6 @@ class CountdownTimer {
             this.minutesElement.textContent = this.padZero(minutes);
             this.secondsElement.textContent = this.padZero(seconds);
         } else {
-            // Countdown finished
             this.daysElement.textContent = '00';
             this.hoursElement.textContent = '00';
             this.minutesElement.textContent = '00';
@@ -207,34 +112,30 @@ class EmailSignup {
         const formData = new FormData();
         formData.append('email', email);
         formData.append('timestamp', new Date().toISOString());
-        formData.append('source', 'coming-soon-page');
+        formData.append('source', 'solus-foods-landing');
 
-        // Try to submit to Google Sheets
         try {
             const response = await fetch(this.googleSheetsURL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Required for Google Sheets
+                mode: 'no-cors'
             });
             
-            // Since we're using no-cors, we can't check the response
-            // We'll assume it succeeded if no error was thrown
             return Promise.resolve();
         } catch (error) {
-            // Fallback: Store in localStorage as backup
             this.storeEmailLocally(email);
             throw error;
         }
     }
 
     storeEmailLocally(email) {
-        const emails = JSON.parse(localStorage.getItem('signupEmails') || '[]');
+        const emails = JSON.parse(localStorage.getItem('solusSignupEmails') || '[]');
         emails.push({
             email: email,
             timestamp: new Date().toISOString(),
-            source: 'coming-soon-page'
+            source: 'solus-foods-landing'
         });
-        localStorage.setItem('signupEmails', JSON.stringify(emails));
+        localStorage.setItem('solusSignupEmails', JSON.stringify(emails));
     }
 
     validateEmail(email) {
@@ -252,7 +153,6 @@ class EmailSignup {
         this.messageElement.textContent = message;
         this.messageElement.className = `form-message ${type}`;
         
-        // Hide message after 5 seconds
         setTimeout(() => {
             this.messageElement.style.opacity = '0';
             setTimeout(() => {
@@ -264,79 +164,56 @@ class EmailSignup {
     }
 }
 
-// Animation Observer (Simple AOS-like functionality)
-class AnimationObserver {
+// Product Image Interactions
+class ProductShowcase {
     constructor() {
-        this.elements = document.querySelectorAll('[data-aos]');
+        this.productImages = document.querySelectorAll('.product-img');
         this.init();
     }
 
     init() {
-        if ('IntersectionObserver' in window) {
-            this.observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('aos-animate');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '50px 0px -50px 0px'
-            });
-
-            this.elements.forEach(element => {
-                this.observer.observe(element);
-            });
-        } else {
-            // Fallback for older browsers
-            this.elements.forEach(element => {
-                element.classList.add('aos-animate');
-            });
-        }
-    }
-}
-
-// Smooth Scrolling
-class SmoothScroll {
-    constructor() {
-        this.init();
+        this.productImages.forEach((img, index) => {
+            // Add staggered animation delays
+            img.style.animationDelay = `${index * 0.2}s`;
+            
+            // Add hover interactions
+            img.addEventListener('mouseenter', () => this.handleHover(img));
+            img.addEventListener('mouseleave', () => this.handleLeave(img));
+        });
     }
 
-    init() {
-        // Handle navigation link clicks
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    handleHover(img) {
+        this.productImages.forEach(otherImg => {
+            if (otherImg !== img) {
+                otherImg.style.opacity = '0.7';
+                otherImg.style.transform = 'scale(0.95)';
+            }
+        });
+    }
+
+    handleLeave(img) {
+        this.productImages.forEach(otherImg => {
+            otherImg.style.opacity = '1';
+            otherImg.style.transform = '';
         });
     }
 }
 
-// Performance Monitoring
+// Performance Monitor
 class PerformanceMonitor {
     constructor() {
         this.init();
     }
 
     init() {
-        // Monitor page load performance
         window.addEventListener('load', () => {
             if ('performance' in window) {
                 const perfData = performance.timing;
                 const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                console.log(`Page load time: ${pageLoadTime}ms`);
+                console.log(`Page loaded in: ${pageLoadTime}ms`);
             }
         });
 
-        // Monitor images loading
         this.monitorImages();
     }
 
@@ -358,7 +235,7 @@ class PerformanceMonitor {
     }
 }
 
-// Accessibility Enhancements
+// Accessibility Manager
 class AccessibilityManager {
     constructor() {
         this.init();
@@ -367,85 +244,57 @@ class AccessibilityManager {
     init() {
         this.setupKeyboardNavigation();
         this.setupFocusManagement();
-        this.setupAriaLabels();
     }
 
     setupKeyboardNavigation() {
-        // Handle Escape key to close mobile menu
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const navMenu = document.getElementById('navMenu');
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                }
-            }
-        });
-    }
-
-    setupFocusManagement() {
-        // Ensure focus is visible
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Tab') {
                 document.body.classList.add('keyboard-navigation');
             }
         });
+    }
 
+    setupFocusManagement() {
         document.addEventListener('mousedown', () => {
             document.body.classList.remove('keyboard-navigation');
         });
-    }
-
-    setupAriaLabels() {
-        // Add aria-labels where needed
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle && !themeToggle.getAttribute('aria-label')) {
-            themeToggle.setAttribute('aria-label', 'Toggle dark/light mode');
-        }
     }
 }
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all managers
     const themeManager = new ThemeManager();
-    const navigationManager = new NavigationManager();
-    const heroSlider = new HeroSlider();
     const countdownTimer = new CountdownTimer();
     const emailSignup = new EmailSignup();
-    const animationObserver = new AnimationObserver();
-    const smoothScroll = new SmoothScroll();
+    const productShowcase = new ProductShowcase();
     const performanceMonitor = new PerformanceMonitor();
     const accessibilityManager = new AccessibilityManager();
 
-    // Add loading complete class to body
+    // Add loaded class to body when everything is ready
     window.addEventListener('load', () => {
         document.body.classList.add('loaded');
-    });
-
-    // Handle resize events
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            // Trigger any resize-dependent functionality
-            console.log('Window resized');
-        }, 250);
     });
 });
 
 // Google Sheets Integration Helper
-// Instructions for setting up Google Sheets integration:
 /*
-1. Create a new Google Sheet
-2. Go to Extensions > Apps Script
+Instructions for setting up Google Sheets integration:
+
+1. Create a new Google Sheet for email signups
+2. Go to Extensions > Apps Script in your Google Sheet
 3. Replace the default code with:
 
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSheet();
   const data = e.parameter;
   
+  // Add headers if this is the first row
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Timestamp', 'Email', 'Source']);
+  }
+  
   sheet.appendRow([
-    new Date(),
+    new Date(data.timestamp),
     data.email,
     data.source
   ]);
@@ -455,28 +304,16 @@ function doPost(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-4. Save and deploy as web app
-5. Copy the web app URL and replace YOUR_SCRIPT_ID in the googleSheetsURL variable above
-6. Set permissions to "Anyone" for the web app
+4. Save the script and deploy as a web app
+5. Set permissions to "Anyone" for the web app
+6. Copy the web app URL and replace YOUR_SCRIPT_ID in the googleSheetsURL variable above
 */
-
-// Service Worker Registration (for future PWA features)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment when you have a service worker file
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(registrationError => console.log('SW registration failed'));
-    });
-}
 
 // Error Handling
 window.addEventListener('error', (event) => {
     console.error('Global error:', event.error);
-    // In production, you might want to send this to an error tracking service
 });
 
 window.addEventListener('unhandledrejection', (event) => {
     console.error('Unhandled promise rejection:', event.reason);
-    // In production, you might want to send this to an error tracking service
 });
