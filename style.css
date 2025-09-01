@@ -173,14 +173,14 @@ img.loaded {
   color: var(--brand-secondary);
 }
 
-.theme-toggle .dark-icon {
+.theme-toggle .light-icon {
   display: none;
 }
 [data-theme="dark"] .theme-toggle .dark-icon {
-  display: block;
+  display: none;
 }
 [data-theme="dark"] .theme-toggle .light-icon {
-  display: none;
+  display: block;
 }
 
 /* Hero */
