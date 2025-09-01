@@ -4,202 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solus Foods - Premium Healthy Snacks Coming Soon</title>
-    <meta name="description" content="Premium healthy snacks and dry fruits coming soon. Discover the finest quality makhana fox nuts and organic treats.">
     
-    <!-- Fonts -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover premium healthy snacks and makhana fox nuts from Solus Foods. Organic, nutritious treats launching soon. Join our waitlist for exclusive access.">
+    <meta name="keywords" content="healthy snacks, makhana, fox nuts, organic treats, nutritious snacks, dry fruits">
+    <meta name="author" content="Solus Foods">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Solus Foods - Premium Healthy Snacks Coming Soon">
+    <meta property="og:description" content="Premium healthy snacks and makhana fox nuts launching soon. Join our waitlist!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="nav-container">
+            <nav class="nav-container">
                 <div class="logo">
                     <h1>Solus Foods</h1>
                 </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <button 
+                    id="themeToggle" 
+                    class="theme-toggle" 
+                    aria-label="Toggle dark mode"
+                    title="Switch theme"
+                >
                     <i class="fas fa-sun light-icon"></i>
                     <i class="fas fa-moon dark-icon"></i>
                 </button>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Landing Section -->
-    <main class="landing">
-        <div class="container">
-            <div class="landing-content">
-                <!-- Hero Text -->
-                <div class="hero-section">
-                    <div class="badge">
-                        <span>🌱 Premium Quality</span>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content" data-animate="fade-left">
+                        <div class="hero-badge">
+                            <i class="fas fa-leaf"></i>
+                            100% Organic & Premium
+                        </div>
+                        <h1 class="hero-title">
+                            Premium <span class="text-gradient">Healthy</span><br>
+                            Snacks & Treats
+                        </h1>
+                        <p class="hero-subtitle">
+                            Discover our carefully curated collection of organic makhana, 
+                            dry fruits, and nutritious snacks. Your wellness journey 
+                            starts with every delicious bite.
+                        </p>
+                        
+                        <!-- Features Pills -->
+                        <div class="features-section">
+                            <div class="features-grid">
+                                <div class="feature-pill">
+                                    <i class="fas fa-seedling"></i>
+                                    100% Organic
+                                </div>
+                                <div class="feature-pill">
+                                    <i class="fas fa-heart"></i>
+                                    Heart Healthy
+                                </div>
+                                <div class="feature-pill">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Fast Delivery
+                                </div>
+                                <div class="feature-pill">
+                                    <i class="fas fa-award"></i>
+                                    Premium Quality
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="main-title">
-                        Healthy Snacking
-                        <span class="highlight">Redefined</span>
-                    </h1>
-                    <p class="main-subtitle">
-                        Premium makhana fox nuts and dry fruits crafted for the health-conscious. 
-                        Launching soon with the finest organic treats.
-                    </p>
                     
-                    <!-- Countdown -->
-                    <div class="countdown-container">
-                        <h3>Launching In</h3>
-                        <div class="countdown" id="countdown">
-                            <div class="time-unit">
-                                <span class="number" id="days">00</span>
-                                <span class="label">Days</span>
+                    <!-- Product Showcase -->
+                    <div class="product-showcase" data-animate="fade-right" data-delay="200">
+                        <div class="floating-products">
+                            <div class="product-float product-main">
+                                <img src="https://images.unsplash.com/photo-1599909533063-fbe5bbceb6c8?w=400&q=80" alt="Premium Makhana Fox Nuts" loading="lazy">
+                                <div class="product-label">Premium Makhana</div>
                             </div>
-                            <div class="time-unit">
-                                <span class="number" id="hours">00</span>
-                                <span class="label">Hours</span>
+                            <div class="product-float product-secondary">
+                                <img src="https://images.unsplash.com/photo-1580439678-69ad2e8e50ea?w=300&q=80" alt="Mixed Dry Fruits" loading="lazy">
+                                <div class="product-label">Dry Fruits Mix</div>
                             </div>
-                            <div class="time-unit">
-                                <span class="number" id="minutes">00</span>
-                                <span class="label">Minutes</span>
+                            <div class="product-float product-tertiary">
+                                <img src="https://images.unsplash.com/photo-1536511132770-e5058c33d0d3?w=250&q=80" alt="Roasted Nuts" loading="lazy">
+                                <div class="product-label">Roasted Nuts</div>
                             </div>
-                            <div class="time-unit">
-                                <span class="number" id="seconds">00</span>
-                                <span class="label">Seconds</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Email Signup -->
-                    <div class="signup-section">
-                        <h3>Get Early Access</h3>
-                        <form class="email-form" id="signupForm">
-                            <div class="input-wrapper">
-                                <input 
-                                    type="email" 
-                                    class="email-input" 
-                                    id="emailInput"
-                                    placeholder="Enter your email for exclusive updates"
-                                    required
-                                >
-                                <button type="submit" class="submit-btn" id="signupBtn">
-                                    <span class="btn-text">Join Waitlist</span>
-                                    <span class="btn-loading">
-                                        <i class="fas fa-spinner fa-spin"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="form-message" id="formMessage"></div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Product Showcase -->
-                <div class="product-showcase">
-                    <div class="product-grid">
-                        <div class="product-item main-product">
-                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=250&h=250&fit=crop&crop=center" alt="Premium Makhana">
-                            <div class="product-badge">Makhana</div>
-                        </div>
-                        <div class="product-item">
-                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&h=200&fit=crop&crop=center" alt="Dry Fruits">
-                            <div class="product-badge">Dry Fruits</div>
-                        </div>
-                        <div class="product-item">
-                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=180&h=180&fit=crop&crop=center" alt="Healthy Mix">
-                            <div class="product-badge">Healthy Mix</div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Decorative Elements -->
+            <div class="decoration-circle top-right"></div>
+            <div class="decoration-circle bottom-left"></div>
+        </section>
 
-            <!-- Features -->
-            <div class="features-section">
-                <div class="feature-pills">
-                    <span class="pill">100% Natural</span>
-                    <span class="pill">Heart Healthy</span>
-                    <span class="pill">Premium Quality</span>
-                    <span class="pill">Organic Certified</span>
+        <!-- Email Signup Section -->
+        <section class="signup-section" data-animate="fade-up">
+            <div class="container">
+                <h2 class="signup-title">Be First to Know</h2>
+                <p class="signup-subtitle">
+                    Join our exclusive waitlist and get notified when we launch. 
+                    Plus, enjoy 20% off your first order!
+                </p>
+                
+                <form id="signupForm" class="email-form">
+                    <div class="input-container">
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            class="email-input"
+                            placeholder="Enter your email address"
+                            required
+                            autocomplete="email"
+                            aria-label="Email address"
+                        >
+                        <button 
+                            type="submit" 
+                            id="signupBtn" 
+                            class="submit-btn"
+                            aria-label="Join waitlist"
+                        >
+                            <span class="btn-text">Join Waitlist</span>
+                            <span class="btn-loading">
+                                <i class="fas fa-spinner spinner"></i>
+                                Joining...
+                            </span>
+                        </button>
+                    </div>
+                    <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section" data-animate="fade-up" data-delay="100">
+            <div class="container">
+                <h2 class="countdown-title">Launching Soon</h2>
+                <div class="countdown-grid">
+                    <div class="time-box">
+                        <span id="days" class="time-number">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours" class="time-number">00</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes" class="time-number">00</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds" class="time-number">00</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Store Links -->
-            <div class="store-section">
-                <h3>Available Soon On</h3>
+        <!-- Store Links Section -->
+        <section class="store-section" data-animate="fade-up" data-delay="200">
+            <div class="container">
+                <h2 class="section-title">Shop Our Products</h2>
+                <p class="section-subtitle">
+                    Available on your favorite platforms when we launch
+                </p>
+                
                 <div class="store-links">
-                    <a href="#" class="store-btn amazon" target="_blank">
-                        <i class="fab fa-amazon"></i>
+                    <a href="#" class="store-card amazon" aria-label="Shop on Amazon">
+                        <div class="store-icon">
+                            <i class="fab fa-amazon"></i>
+                        </div>
                         <div class="store-info">
                             <span class="store-name">Amazon</span>
-                            <span class="store-desc">Prime Delivery</span>
+                            <span class="store-desc">Fast delivery nationwide</span>
                         </div>
                     </a>
-                    <a href="#" class="store-btn flipkart" target="_blank">
-                        <div class="flipkart-icon">
+                    
+                    <a href="#" class="store-card flipkart" aria-label="Shop on Flipkart">
+                        <div class="store-icon">
                             <span>F</span>
                         </div>
                         <div class="store-info">
                             <span class="store-name">Flipkart</span>
-                            <span class="store-desc">Fast Shipping</span>
+                            <span class="store-desc">Trusted Indian marketplace</span>
                         </div>
                     </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Social Links -->
-            <div class="social-section">
-                <h3>Follow Our Journey</h3>
+        <!-- Social Media Section -->
+        <section class="social-section" data-animate="fade-up" data-delay="300">
+            <div class="container">
+                <h2 class="section-title">Stay Connected</h2>
+                <p class="section-subtitle">
+                    Follow us for healthy recipes, nutrition tips, and exclusive updates
+                </p>
+                
                 <div class="social-grid">
-                    <a href="https://instagram.com/solusfoods" class="social-card instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        <div class="social-info">
-                            <span class="social-name">Instagram</span>
-                            <span class="social-handle">@solusfoods</span>
+                    <a href="#" class="social-card instagram" aria-label="Follow us on Instagram">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
                         </div>
+                        <div class="social-title">Instagram</div>
+                        <div class="social-handle">@solusfoods</div>
                     </a>
-                    <a href="https://facebook.com/solusfoods" class="social-card facebook" target="_blank">
-                        <i class="fab fa-facebook"></i>
-                        <div class="social-info">
-                            <span class="social-name">Facebook</span>
-                            <span class="social-handle">Solus Foods</span>
+                    
+                    <a href="#" class="social-card facebook" aria-label="Like us on Facebook">
+                        <div class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
                         </div>
+                        <div class="social-title">Facebook</div>
+                        <div class="social-handle">Solus Foods</div>
                     </a>
-                    <a href="https://twitter.com/solusfoods" class="social-card twitter" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                        <div class="social-info">
-                            <span class="social-name">Twitter</span>
-                            <span class="social-handle">@solusfoods</span>
+                    
+                    <a href="#" class="social-card twitter" aria-label="Follow us on Twitter">
+                        <div class="social-icon">
+                            <i class="fab fa-twitter"></i>
                         </div>
+                        <div class="social-title">Twitter</div>
+                        <div class="social-handle">@solusfoods</div>
                     </a>
-                    <a href="https://linkedin.com/company/solusfoods" class="social-card linkedin" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        <div class="social-info">
-                            <span class="social-name">LinkedIn</span>
-                            <span class="social-handle">Solus Foods</span>
+                    
+                    <a href="#" class="social-card linkedin" aria-label="Connect on LinkedIn">
+                        <div class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
                         </div>
+                        <div class="social-title">LinkedIn</div>
+                        <div class="social-handle">Solus Foods</div>
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.</p>
-            <div class="contact-info">
-                <a href="mailto:hello@solusfoods.com">hello@solusfoods.com</a>
-                <span>•</span>
-                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            <div class="footer-content">
+                <p class="footer-text">
+                    &copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.
+                </p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="footer-divider">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="footer-divider">•</span>
+                    <a href="#">Contact Us</a>
+                    <span class="footer-divider">•</span>
+                    <a href="#">About</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- JavaScript Modules -->
+    <script src="js/theme.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/email.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
