@@ -25,195 +25,176 @@
                 <div class="logo">
                     <h1>Solus Foods</h1>
                 </div>
-                <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                        <i class="fas fa-sun light-icon"></i>
-                        <i class="fas fa-moon dark-icon"></i>
-                    </button>
-                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <!-- Main Landing Section -->
+    <main class="landing">
         <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h2 class="hero-subtitle">Healthy Snacking</h2>
-                        <h1 class="hero-title">
-                            Premium <br>
-                            Makhana & Dry Fruits <br>
-                            <span class="accent-text">Coming Soon</span>
-                        </h1>
-                        <p class="hero-description">
-                            Discover the finest quality organic makhana fox nuts and premium dry fruits. 
-                            Crafted with care for the health-conscious snack lover.
-                        </p>
-                        
-                        <!-- Email Signup -->
-                        <div class="signup-section">
-                            <form class="signup-form" id="signupForm">
-                                <div class="input-group">
-                                    <input 
-                                        type="email" 
-                                        class="email-input" 
-                                        id="emailInput"
-                                        placeholder="Enter your email address"
-                                        required
-                                    >
-                                    <button type="submit" class="cta-btn" id="signupBtn">
-                                        <span class="btn-text">Get Notified</span>
-                                        <span class="btn-loading">
-                                            <i class="fas fa-spinner fa-spin"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <div class="form-message" id="formMessage"></div>
-                            </form>
+            <div class="landing-content">
+                <!-- Hero Text -->
+                <div class="hero-section">
+                    <div class="badge">
+                        <span>🌱 Premium Quality</span>
+                    </div>
+                    <h1 class="main-title">
+                        Healthy Snacking
+                        <span class="highlight">Redefined</span>
+                    </h1>
+                    <p class="main-subtitle">
+                        Premium makhana fox nuts and dry fruits crafted for the health-conscious. 
+                        Launching soon with the finest organic treats.
+                    </p>
+                    
+                    <!-- Countdown -->
+                    <div class="countdown-container">
+                        <h3>Launching In</h3>
+                        <div class="countdown" id="countdown">
+                            <div class="time-unit">
+                                <span class="number" id="days">00</span>
+                                <span class="label">Days</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="number" id="hours">00</span>
+                                <span class="label">Hours</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="number" id="minutes">00</span>
+                                <span class="label">Minutes</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="number" id="seconds">00</span>
+                                <span class="label">Seconds</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="hero-image">
-                        <div class="product-showcase">
-                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=300&h=300&fit=crop&crop=center" alt="Premium Makhana" class="product-img main-product">
-                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&h=200&fit=crop&crop=center" alt="Dry Fruits" class="product-img secondary-product">
-                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=180&h=180&fit=crop&crop=center" alt="Healthy Snacks" class="product-img tertiary-product">
+
+                    <!-- Email Signup -->
+                    <div class="signup-section">
+                        <h3>Get Early Access</h3>
+                        <form class="email-form" id="signupForm">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="email" 
+                                    class="email-input" 
+                                    id="emailInput"
+                                    placeholder="Enter your email for exclusive updates"
+                                    required
+                                >
+                                <button type="submit" class="submit-btn" id="signupBtn">
+                                    <span class="btn-text">Join Waitlist</span>
+                                    <span class="btn-loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="form-message" id="formMessage"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Product Showcase -->
+                <div class="product-showcase">
+                    <div class="product-grid">
+                        <div class="product-item main-product">
+                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=250&h=250&fit=crop&crop=center" alt="Premium Makhana">
+                            <div class="product-badge">Makhana</div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&h=200&fit=crop&crop=center" alt="Dry Fruits">
+                            <div class="product-badge">Dry Fruits</div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=180&h=180&fit=crop&crop=center" alt="Healthy Mix">
+                            <div class="product-badge">Healthy Mix</div>
                         </div>
                     </div>
                 </div>
-            </section>
-            
-            <!-- Countdown Section -->
-            <section class="countdown-section">
-                <h3 class="countdown-title">Launching In</h3>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">Seconds</span>
-                    </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-section">
+                <div class="feature-pills">
+                    <span class="pill">100% Natural</span>
+                    <span class="pill">Heart Healthy</span>
+                    <span class="pill">Premium Quality</span>
+                    <span class="pill">Organic Certified</span>
                 </div>
-            </section>
-            
-            <!-- Product Preview -->
-            <section class="products">
-                <h2 class="section-title">What's Coming</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1599599810694-57a2ca8276a8?w=250&h=200&fit=crop&crop=center" alt="Premium Makhana">
+            </div>
+
+            <!-- Store Links -->
+            <div class="store-section">
+                <h3>Available Soon On</h3>
+                <div class="store-links">
+                    <a href="#" class="store-btn amazon" target="_blank">
+                        <i class="fab fa-amazon"></i>
+                        <div class="store-info">
+                            <span class="store-name">Amazon</span>
+                            <span class="store-desc">Prime Delivery</span>
                         </div>
-                        <div class="product-info">
-                            <h3>Premium Makhana</h3>
-                            <p>Roasted fox nuts with exotic flavors</p>
-                            <span class="price">Starting ₹299</span>
+                    </a>
+                    <a href="#" class="store-btn flipkart" target="_blank">
+                        <div class="flipkart-icon">
+                            <span>F</span>
                         </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=250&h=200&fit=crop&crop=center" alt="Premium Dry Fruits">
+                        <div class="store-info">
+                            <span class="store-name">Flipkart</span>
+                            <span class="store-desc">Fast Shipping</span>
                         </div>
-                        <div class="product-info">
-                            <h3>Premium Dry Fruits</h3>
-                            <p>Handpicked almonds, cashews & nuts</p>
-                            <span class="price">Starting ₹499</span>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=250&h=200&fit=crop&crop=center" alt="Healthy Snack Mix">
-                        </div>
-                        <div class="product-info">
-                            <h3>Healthy Snack Mix</h3>
-                            <p>Curated mix of nutritious seeds & nuts</p>
-                            <span class="price">Starting ₹399</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-            </section>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-section">
+                <h3>Follow Our Journey</h3>
+                <div class="social-grid">
+                    <a href="https://instagram.com/solusfoods" class="social-card instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <div class="social-info">
+                            <span class="social-name">Instagram</span>
+                            <span class="social-handle">@solusfoods</span>
+                        </div>
+                    </a>
+                    <a href="https://facebook.com/solusfoods" class="social-card facebook" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                        <div class="social-info">
+                            <span class="social-name">Facebook</span>
+                            <span class="social-handle">Solus Foods</span>
+                        </div>
+                    </a>
+                    <a href="https://twitter.com/solusfoods" class="social-card twitter" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <div class="social-info">
+                            <span class="social-name">Twitter</span>
+                            <span class="social-handle">@solusfoods</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/company/solusfoods" class="social-card linkedin" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="social-info">
+                            <span class="social-name">LinkedIn</span>
+                            <span class="social-handle">Solus Foods</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </main>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>100% Natural</h3>
-                    <p>Organic ingredients with no artificial additives</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Heart Healthy</h3>
-                    <p>Nutritious snacks that support your wellness</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Premium Quality</h3>
-                    <p>Carefully selected and quality assured products</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Social & Contact -->
-    <section class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Stay Connected</h2>
-            <p class="section-subtitle">Follow us for updates and healthy recipes</p>
-            
-            <div class="social-links">
-                <a href="https://instagram.com/solusfoods" class="social-btn" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://facebook.com/solusfoods" class="social-btn" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://twitter.com/solusfoods" class="social-btn" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com/company/solusfoods" class="social-btn" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.</p>
-                <div class="footer-links">
-                    <a href="mailto:hello@solusfoods.com">hello@solusfoods.com</a>
-                    <span class="divider">|</span>
-                    <a href="tel:+15551234567">+1 (555) 123-4567</a>
-                </div>
+            <p>&copy; 2025 Solus Foods. Premium healthy snacks for a better lifestyle.</p>
+            <div class="contact-info">
+                <a href="mailto:hello@solusfoods.com">hello@solusfoods.com</a>
+                <span>•</span>
+                <a href="tel:+15551234567">+1 (555) 123-4567</a>
             </div>
         </div>
     </footer>

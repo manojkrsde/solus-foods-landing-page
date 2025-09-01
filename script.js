@@ -2,7 +2,7 @@
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('themeToggle');
-        this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.currentTheme = localStorage.getItem('solus-theme') || 'light';
         this.init();
     }
 
@@ -14,7 +14,7 @@ class ThemeManager {
     setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         this.currentTheme = theme;
-        localStorage.setItem('theme', theme);
+        localStorage.setItem('solus-theme', theme);
     }
 
     toggleTheme() {
@@ -74,7 +74,7 @@ class EmailSignup {
         this.submitBtn = document.getElementById('signupBtn');
         this.messageElement = document.getElementById('formMessage');
         
-        // Google Sheets Web App URL - Replace with your actual URL
+        // Google Sheets Web App URL
         this.googleSheetsURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
         
         this.init();
@@ -90,7 +90,7 @@ class EmailSignup {
         const email = this.emailInput.value.trim();
         
         if (!this.validateEmail(email)) {
-            this.showMessage('Please enter a valid email address.', 'error');
+            this.showMessage('Please enter a valid email address', 'error');
             return;
         }
 
@@ -98,11 +98,11 @@ class EmailSignup {
 
         try {
             await this.submitToGoogleSheets(email);
-            this.showMessage('Thank you! We\'ll notify you when we launch.', 'success');
+            this.showMessage('🎉 You\'re on the waitlist! We\'ll notify you when we launch.', 'success');
             this.emailInput.value = '';
         } catch (error) {
             console.error('Submission error:', error);
-            this.showMessage('Something went wrong. Please try again later.', 'error');
+            this.showMessage('Oops! Something went wrong. Please try again.', 'error');
         }
 
         this.setLoading(false);
@@ -124,18 +124,18 @@ class EmailSignup {
             return Promise.resolve();
         } catch (error) {
             this.storeEmailLocally(email);
-            throw error;
+            return Promise.resolve();
         }
     }
 
     storeEmailLocally(email) {
-        const emails = JSON.parse(localStorage.getItem('solusSignupEmails') || '[]');
+        const emails = JSON.parse(localStorage.getItem('solusWaitlist') || '[]');
         emails.push({
             email: email,
             timestamp: new Date().toISOString(),
             source: 'solus-foods-landing'
         });
-        localStorage.setItem('solusSignupEmails', JSON.stringify(emails));
+        localStorage.setItem('solusWaitlist', JSON.stringify(emails));
     }
 
     validateEmail(email) {
@@ -164,60 +164,54 @@ class EmailSignup {
     }
 }
 
-// Product Image Interactions
+// Product Showcase Interactions
 class ProductShowcase {
     constructor() {
-        this.productImages = document.querySelectorAll('.product-img');
+        this.productItems = document.querySelectorAll('.product-item');
         this.init();
     }
 
     init() {
-        this.productImages.forEach((img, index) => {
-            // Add staggered animation delays
-            img.style.animationDelay = `${index * 0.2}s`;
-            
-            // Add hover interactions
-            img.addEventListener('mouseenter', () => this.handleHover(img));
-            img.addEventListener('mouseleave', () => this.handleLeave(img));
+        this.productItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', () => this.handleHover(item, index));
+            item.addEventListener('mouseleave', () => this.handleLeave());
         });
     }
 
-    handleHover(img) {
-        this.productImages.forEach(otherImg => {
-            if (otherImg !== img) {
-                otherImg.style.opacity = '0.7';
-                otherImg.style.transform = 'scale(0.95)';
+    handleHover(activeItem, index) {
+        this.productItems.forEach((item, i) => {
+            if (i !== index) {
+                item.style.opacity = '0.6';
+                item.style.transform = 'scale(0.95)';
+            } else {
+                item.style.zIndex = '20';
             }
         });
     }
 
-    handleLeave(img) {
-        this.productImages.forEach(otherImg => {
-            otherImg.style.opacity = '1';
-            otherImg.style.transform = '';
+    handleLeave() {
+        this.productItems.forEach((item, index) => {
+            item.style.opacity = '1';
+            item.style.transform = '';
+            if (index === 0) {
+                item.style.zIndex = '3';
+            } else if (index === 1) {
+                item.style.zIndex = '2';
+            } else {
+                item.style.zIndex = '1';
+            }
         });
     }
 }
 
-// Performance Monitor
-class PerformanceMonitor {
+// Loading Manager
+class LoadingManager {
     constructor() {
         this.init();
     }
 
     init() {
-        window.addEventListener('load', () => {
-            if ('performance' in window) {
-                const perfData = performance.timing;
-                const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                console.log(`Page loaded in: ${pageLoadTime}ms`);
-            }
-        });
-
-        this.monitorImages();
-    }
-
-    monitorImages() {
+        // Monitor images loading
         const images = document.querySelectorAll('img');
         images.forEach(img => {
             if (img.complete) {
@@ -232,6 +226,16 @@ class PerformanceMonitor {
                 });
             }
         });
+
+        // Page load performance
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            if ('performance' in window) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Solus Foods loaded in: ${loadTime}ms`);
+            }
+        });
     }
 }
 
@@ -242,22 +246,48 @@ class AccessibilityManager {
     }
 
     init() {
-        this.setupKeyboardNavigation();
-        this.setupFocusManagement();
-    }
-
-    setupKeyboardNavigation() {
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Tab') {
                 document.body.classList.add('keyboard-navigation');
             }
         });
-    }
 
-    setupFocusManagement() {
         document.addEventListener('mousedown', () => {
             document.body.classList.remove('keyboard-navigation');
         });
+
+        // Skip to main content (for screen readers)
+        this.addSkipLink();
+    }
+
+    addSkipLink() {
+        const skipLink = document.createElement('a');
+        skipLink.href = '#main-content';
+        skipLink.textContent = 'Skip to main content';
+        skipLink.className = 'skip-link';
+        skipLink.style.cssText = `
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--warm-orange);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.2s ease;
+        `;
+        
+        skipLink.addEventListener('focus', () => {
+            skipLink.style.top = '6px';
+        });
+        
+        skipLink.addEventListener('blur', () => {
+            skipLink.style.top = '-40px';
+        });
+        
+        document.body.insertBefore(skipLink, document.body.firstChild);
     }
 }
 
@@ -267,28 +297,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const countdownTimer = new CountdownTimer();
     const emailSignup = new EmailSignup();
     const productShowcase = new ProductShowcase();
-    const performanceMonitor = new PerformanceMonitor();
+    const loadingManager = new LoadingManager();
     const accessibilityManager = new AccessibilityManager();
 
-    // Add loaded class to body when everything is ready
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-    });
+    // Add smooth entrance animations
+    setTimeout(() => {
+        document.querySelector('.hero-section').style.opacity = '1';
+        document.querySelector('.hero-section').style.transform = 'translateY(0)';
+    }, 100);
+
+    setTimeout(() => {
+        document.querySelector('.product-showcase').style.opacity = '1';
+        document.querySelector('.product-showcase').style.transform = 'translateY(0)';
+    }, 300);
 });
 
-// Google Sheets Integration Helper
+// Google Sheets Integration Setup Instructions
 /*
-Instructions for setting up Google Sheets integration:
+To connect email signups to Google Sheets:
 
-1. Create a new Google Sheet for email signups
-2. Go to Extensions > Apps Script in your Google Sheet
-3. Replace the default code with:
+1. Create a new Google Sheet with columns: Timestamp, Email, Source
+2. Go to Extensions > Apps Script
+3. Paste this code:
 
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSheet();
   const data = e.parameter;
   
-  // Add headers if this is the first row
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Timestamp', 'Email', 'Source']);
   }
@@ -304,16 +339,15 @@ function doPost(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-4. Save the script and deploy as a web app
-5. Set permissions to "Anyone" for the web app
-6. Copy the web app URL and replace YOUR_SCRIPT_ID in the googleSheetsURL variable above
+4. Deploy as web app with "Anyone" access
+5. Replace YOUR_SCRIPT_ID in the googleSheetsURL with your script ID
 */
 
 // Error Handling
 window.addEventListener('error', (event) => {
-    console.error('Global error:', event.error);
+    console.error('Solus Foods Error:', event.error);
 });
 
 window.addEventListener('unhandledrejection', (event) => {
-    console.error('Unhandled promise rejection:', event.reason);
+    console.error('Solus Foods Promise Error:', event.reason);
 });
